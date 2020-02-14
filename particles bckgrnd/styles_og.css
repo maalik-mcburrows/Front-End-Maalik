@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+#particles-js{
+    height: 100%;
+    background: #262626;
+}
+
+.container{
+    /* widows: 320px;
+    height:520px; */
+    width: 320px;
+    height: 520px;
+    background-color: black;
+    z-index: 99999;
+    clear: none;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    color: white;
+}
+

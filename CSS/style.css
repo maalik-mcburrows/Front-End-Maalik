@@ -1,0 +1,76 @@
+#attraction-panel {
+    display:none;
+  }
+
+html{
+  height: 100%;
+}
+
+body{
+  font-family: sans-serif;
+  /* font-style: italic; */
+  text-transform: uppercase;
+  background-color: #262626;
+  color: #262626;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+#particles-js{
+  background: #262626;
+  height: 100%;
+}
+
+.nonBackground{
+  /* height: auto;
+  width: auto; */
+  z-index: 99999;
+  clear: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+}
+
+.jumbotron{
+  padding: 10px;
+  border-bottom-right-radius: 100%;
+  background: linear-gradient(45deg, #39ff14,#39ff14 5%, #262626);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: italic;
+  /* float: left;
+  clear: none; */
+}
+
+/* .btn{
+  font-family: sans-serif;
+  font-style: none;
+} */
+
+/* .lead .btn btn-danger btn-lg{
+  background-color: black;
+} */
+
+.container{
+  display: flex;
+  justify-content: center;
+  background-color: #39ff14;
+}
+
+.list-group-item-heading{
+  color: #262626;
+}
+
+.list-group-item-text{
+  color: #262626;
+}
+
+.venue{
+  color: #262626;
+}
+
+
+
+
+
