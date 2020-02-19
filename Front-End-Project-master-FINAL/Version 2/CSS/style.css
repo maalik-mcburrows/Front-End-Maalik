@@ -17,6 +17,7 @@
     height: 100vh;
     max-width: 100%;
     /* display: grid; */
+    text-transform: capitalize;
   }
   
 
@@ -85,6 +86,12 @@
     overflow: auto;
     flex-wrap: wrap;
   }
+
+.dusty-grass-gradient {
+    background-color: #39ff14;
+    color: #262626;  
+    background-image: none;
+}
 
   .btn{
     width: fit-content;

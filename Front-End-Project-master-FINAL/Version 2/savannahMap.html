@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
 
      <!-- JQuery -->
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -9,57 +9,80 @@
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
      <!-- Bootstrap core JavaScript -->
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+     
+     <!-- Final Change Added Here -->
+     
      <!-- MDB core JavaScript -->
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
+     <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+     <!-- Optional theme -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+     <link rel="stylesheet" type="text/css" href="css/ATLstyle.css">
  
   </head>
+
   <body>
 
-     <!-- Navbar with button navs -->
-     <nav class="navbar navbar-expand-xl-6 navbar-light bg-primary">
+    <!-- Final Change Added Nav Bar -->
+<div class="mapNav">
+    <!-- Navbar with button navs -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbarElement">
 
-      <img src= "images/calendar.png">
-      <a class="navbar-brand" href="#">Eventify</a>
-      <a class="navbar-brand" href="home.html">Home</a>
-      <a class="navbar-brand" href="home.html">About</a>
-  
-  </nav>
+      <a class="navbar-brand" href="#" id="navBrand">Navbar</a>
+      
 
-    <button onclick = "history.back();">Click Here to go Back</button>
+      <form class="form-inline">
+          <button class="btn btn-outline-success" id="navBtn" type="button" href="home.html">HOME</button>
+          <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
+        </form>
+
+        <form class="form-inline">
+          <button class="btn btn-outline-success" id="navBtn" type="button" href="#">EVENTS</button>
+          <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
+        </form>
+
+        <form class="form-inline">
+          <button class="btn btn-outline-success" id="navBtn" type="button" href="home.html">ABOUT</button>
+          <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
+        </form>
+    </nav>
+  </div>
+    <!-- Final Change Added here -->
+  <!-- <div class="redirButton"> -->
+    <button onclick = "history.back();" class="redirButton">CLICK HERE TO GO BACK</button>
+    <!-- </div> -->
     <p id="location"></p>
     <div id="map"></div>
     <div id="events"></div>
-    <script>
+    <!-- <p id ="infoTab">Placeholder</p>  -->
+   <script>
 
 function showPosition(position) {
     let x = document.getElementById("location");
-    // coords of Savannah
-    const latlon = 32.0809 + "," + -81.0912;
+    // coords of Atlanta
+    const latlon = 33.753746 + "," + -84.386330;
 
 // set max radius to 30 miles of given coords
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?city=Savannah&radius=30&unit=miles&apikey=0AM5PnXd9P80gcqkQlWul8ARQYY1GIAY&latlong="+latlon,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?city=Atlanta&radius=30&unit=miles&apikey=0AM5PnXd9P80gcqkQlWul8ARQYY1GIAY&latlong="+latlon,
     async:true,
     dataType: "json",
     success: function(json) {
       console.log(json);
-      var e = document.getElementById("events");
-
+      let e = document.getElementById("events");
+    
       e.innerHTML = json.page.totalElements + " events found.";
+
       showEvents(json);
       initMap(position, json);
       },
     error: function(xhr, status, err) {
-      console.log(err);
-        }
-    });
+                console.log(err);
+      }
+  });
   
 }
     
@@ -72,23 +95,26 @@ function showPosition(position) {
     function initMap(position, json) {
       let mapDiv = document.getElementById('map');
       let map = new google.maps.Map(mapDiv, {
-        center: {lat: 32.0809, lng: -81.0912},
+        center: {lat: 33.753746, lng: -84.386330},
         zoom: 11
       });
-
       for(let i=0; i<json.page.size; i++) {
         addMarker(map, json._embedded.events[i]);
       }
     }
     
+    // Final Change Added Here
+
     function addMarker(map, event) {
-      let contentString = "An Event Occurs Here!"//$('#classification').html(eventObject.data[""]);  -- add this when combining into events page to call
+      
+      let contentString = "An Event Occurs Here!";//document.querySelector("#infoTab")
+      
       let infoWindow = new google.maps.InfoWindow({
           content : contentString
       });  
       let marker = new google.maps.Marker({
         position: new google.maps.LatLng(event._embedded.venues[0].location.latitude, event._embedded.venues[0].location.longitude),
-        map: map    
+        map: map
       });
       marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
       marker.addListener("click", function(){
@@ -102,12 +128,11 @@ function showPosition(position) {
 
     <!-- for security purposes - removed unique API KEY  -->
     <!-- if you do not have an API key use the API code below -->
-  
-    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<KEY HERE"></script> -->
-
+<!--   
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<KEY HERE>"></script> -->
 
     <!-- for dev purposes, use old v2 API -->
-    <script src="https://maps.googleapis.com/maps/api/js" async defer></script>
+    <script type= "text/javascript" src="https://maps.googleapis.com/maps/api/js" async defer></script>
     
 
   </body>

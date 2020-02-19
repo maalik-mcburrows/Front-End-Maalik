@@ -1,6 +1,7 @@
 html{
     height: 100vh;
     margin: 0;
+    background-color: #262626;
   }
   
   body{
@@ -14,6 +15,7 @@ html{
     height: 100vh;
     max-width: 100%;
     /* display: grid; */
+    text-transform: capitalize;
   }
 
 .content{
@@ -31,6 +33,12 @@ html{
     /* flex-wrap: wrap; */
     overflow: auto;
   }
+
+.citybtns .atlBtn .dusty-grass-gradient {
+    background-color: #39ff14;
+    color: #262626;  
+    background-image: none;
+}
 
 
 .btn{
@@ -52,6 +60,7 @@ html{
   width: 100vw;
   min-width: 50px;
   overflow: auto;
+  top: 0;
   /* flex-shrink: 1; */
 
 
@@ -195,4 +204,21 @@ min-width: 75px;
     background-color: #262626;
     border-color: #39ff14;
     border-radius: 50%;
+}
+
+#map{
+    height: 100vh;
+    position: fixed;
+    top: 100px;
+}
+
+.redirButton{
+    position: absolute;
+    top: 73px;
+    background-color: #262626;
+    color: #39ff14;
+    padding: 5px;
+    border-radius: 50%;
+    border-color: #39ff14;
+    text-transform: capitalize;
 }
