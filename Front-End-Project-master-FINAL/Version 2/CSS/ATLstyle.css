@@ -15,7 +15,7 @@ html{
     height: 100vh;
     max-width: 100%;
     /* display: grid; */
-    text-transform: capitalize;
+    text-transform: uppercase;
   }
 
 .content{
@@ -45,22 +45,23 @@ html{
     width: fit-content;
   }
 
-#navbarElement{
+.navbar{
   /* grid-area: navbar; */
   border-bottom-right-radius: 100%;
   /* max-height: 50vh; */
   /* clear: none; */
   background: linear-gradient(45deg, #262626, #262626 15%, #39ff14);
-  /* display: flex; */
+  display: flex;
   /* flex-flow: row; */
   overflow: auto; 
   justify-content: start;
   flex-wrap: wrap;
-  position: absolute;
+  /* position: absolute; */
   width: 100vw;
   min-width: 50px;
   overflow: auto;
   top: 0;
+  border: none;
   /* flex-shrink: 1; */
 
 
@@ -103,18 +104,24 @@ min-width: 75px;
   }
   
   .col-lg{
-    position: absolute;
-    top: 25%;
+    /* position: absolute;
+    height: 50vh; */
+    top: 15vh;
     /* width: 50vw;
     padding-right: 15px;
     padding-left: 15px; */
+    /* margin-top: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: center; */
   }
   
+.panel{
+  top: -35px;
+}
+
   .panel{
     margin-bottom: 25vh;
-    margin-top: 25vh;
+    margin-top: 0;
     /* margin-left: 25vw; */
     overflow: auto;
     /* width: 50vw; */
@@ -221,4 +228,8 @@ min-width: 75px;
     border-radius: 50%;
     border-color: #39ff14;
     text-transform: capitalize;
+}
+
+#events-panel{
+  height: 50vh;
 }

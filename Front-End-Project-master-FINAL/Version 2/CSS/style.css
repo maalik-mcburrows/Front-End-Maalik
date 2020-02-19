@@ -17,7 +17,7 @@
     height: 100vh;
     max-width: 100%;
     /* display: grid; */
-    text-transform: capitalize;
+    text-transform: uppercase;
   }
   
 
