@@ -25,12 +25,52 @@
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
+
+      function showPosition(position) {
+
+        var x = document.getElementById("location");
+        const latlon = 33.753746 + "," + -84.386330;
+        
+        $.ajax({
+          type:"GET",
+          url:"https://app.ticketmaster.com/discovery/v2/events.json?city=Atlanta&radius=15&unit=miles&countrycode=US&apikey=0AM5PnXd9P80gcqkQlWul8ARQYY1GIAY&latlong="+positionA,
+          async:true,
+          dataType: "json",
+          success: function(json) {
+                      console.log(json);
+                      var e = document.getElementById("events");
+                      e.innerHTML = json.page.totalElements + " events found.";
+                      showEvents(json);
+                      initMap(position, json);
+                  },
+          error: function(xhr, status, err) {
+                      console.log(err);
+                  }
+      });
+  
+  console.log("position");
+}
+
+showPosition();
+
+
+function showEvents(json) {
+            for(var i=0; i<json.page.size; i++) {
+                $("#events").append("<p>"+json._embedded.events[i].name+"</p>");
+            }
+        }
+
       var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
-          zoom: 6
+          zoom: 8
         });
+
+        for(var i=0; i<json.page.size; i++) {
+          addMarker(map, json._embedded.events[i]);
+        }
+
         infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
@@ -53,6 +93,24 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }
       }
+
+      function addMarker(map, event) {
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(event._embedded.venues[0].location.latitude, event._embedded.venues[0].location.longitude),
+            map: map
+        });
+        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+        marker.addListener("click", function(){
+          infoWindow.open(map, marker);
+        
+        console.log(marker);
+        console.log("events");
+        });
+      }
+      addMarker();
+      
+
+
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);

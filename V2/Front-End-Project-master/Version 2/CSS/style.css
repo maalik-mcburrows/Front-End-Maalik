@@ -1,0 +1,123 @@
+#map {
+    width: 500px;
+    height: 400px;
+  }
+
+  html{
+    height: 100%;
+  }
+  
+  body{
+    font-family: sans-serif;
+    /* font-style: italic; */
+    text-transform: uppercase;
+    background-color: #262626;
+    color: #262626;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    max-width: 100%;
+    /* display: grid; */
+  }
+  
+.nonBackground{
+  clear: none;
+  /* display: grid; */
+}
+
+  #particles-js{
+    /* grid-area: main; */
+    background: #262626;
+    height: 100vh;
+    z-index: 9999999999;
+
+  }
+
+  .title{
+    /* grid-area: title1; */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  .title2{
+    /* grid-area: title2; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  .citybtns{
+    /* grid-area: citybtns; */
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  .btn{
+    /* background-color: #39ff14; */
+    border-radius: 50%;
+  }
+
+#navbarElement{
+  /* grid-area: navbar; */
+  border-bottom-right-radius: 100%;
+  clear: none;
+  background: linear-gradient(45deg, #262626, #262626 15%, #39ff14);
+}
+
+  #navBtn{
+    border-radius: 50%;
+  }
+
+#navBrand{
+  color: #39ff14;
+}
+
+#atlBtn{
+  border-radius: 60%;
+}
+
+#sandyBtn{
+  border-radius: 60%;
+}
+
+#savannahBtn{
+  border-radius: 60%;
+}
+
+
+/* .navbar{
+  clear: none;
+  z-index: 99998;
+} */
+
+.nonBackground{
+  /* height: auto;
+  width: auto; */
+  z-index: 99999;
+  clear: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+}
+  /* .navbar{
+    /* display: flex;
+    justify-content: center; */
+    /* align-items: center;
+    float: ; */
+    /* float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }  */
+
+  

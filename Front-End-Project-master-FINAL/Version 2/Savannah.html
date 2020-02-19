@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    
+
+    <style>
+      #attraction-panel {
+        display:none;
+      }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  
+  <body>
+    
+    <!-- Navbar with button navs -->
+    <nav class="navbar navbar-expand-xl-6 navbar-light bg-primary">
+
+        <img src= "images/calendar.png">
+        <a class="navbar-brand" href="#">Eventify</a>
+        <a class="navbar-brand" href="home.html">Home</a>
+        <a class="navbar-brand" href="home.html">About</a>
+    
+    </nav>
+
+    <!-- Event List -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg">
+        <div id='events-panel' class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title">Events</h3>
+          </div>
+          <div class="panel-body">
+            <div id="events" class="list-group">
+              
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Description</p>
+                <p class="venue"></p>
+                <p class="addressed">Another Description</p>
+              </a>
+              
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Description</p>
+                <p class="venue"></p>
+                <p class="addressed">Another Description</p>
+              </a>
+              
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Description</p>
+                <p class="venue"></p>
+                <p class="addressed">Another Description</p>
+              </a>
+              
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Description</p>
+                <p class="venue"></p>
+                <p class="addressed">Another Description</p>
+              </a>
+              
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Description</p>
+                <p class="venue"></p>
+                <p class="addressed">Another Description</p>
+              </a>
+              
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Description</p>
+                <p class="venue"></p>
+                <p class="addressed">Another Description</p>
+              </a>
+              
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Description</p>
+                <p class="venue"></p>
+                <p class="addressed">Another Description</p>
+              </a>
+              
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Description</p>
+                <p class="venue"></p>
+                <p class="addressed">Another Description</p>
+              </a>
+              
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Description</p>
+                <p class="venue"></p>
+                <p class="addressed">Another Description</p>
+              </a>
+              
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Description</p>
+                <p class="venue"></p>
+                <p class="addressed">Another Description</p>
+              </a>
+
+            </div>
+          </div>
+          <div class="panel-footer">
+            <nav>
+              <ul class="pager">
+                <li id="prev" class="previous"><a href="#"><span aria-hidden="true">&larr;</span></a></li>
+                <li id="next" class="next"><a href="#"><span aria-hidden="true">&rarr;</span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        
+        <div id='attraction-panel' class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Event Link</h3>
+          </div>
+          <div id="attraction" class="panel-body">
+            <h4 class="list-group-item-heading">Click to See More!</h4>
+            <img class="col-xs-12" src="">
+            <a id="classification" href= "" ></a>
+          </div>
+          
+          <div id='map-panel' class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Event Map</h3>
+            </div>
+
+            <div id="mapping" class="panel-body">
+              <h4 id = "mapBox" class="list-group-item-heading">Click to see a Map!</h4>
+              <button onclick = "window.location.href = 'savannahMap.html';">Savannah</button>
+              </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  
+  </body>
+
+<script>
+
+let page = 0;
+
+function getEvents(page) {
+
+  $('#events-panel').show();
+  $('#attraction-panel').hide();
+
+  if (page < 0) {
+    page = 0;
+    return;
+  }
+  if (page > 0) {
+    if (page > getEvents.json.page.totalPages-1) {
+      page=0;
+      return;
+    }
+  }
+  
+  $.ajax({
+    type:"GET",
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?city=Savannah&apikey=0AM5PnXd9P80gcqkQlWul8ARQYY1GIAY&size=10&page="+page,
+    async:true,
+    dataType: "json",
+    success: function(json) {
+      getEvents.json = json;
+      showEvents(json);
+    },
+    error: function(xhr, status, err) {
+      console.log(err);
+    }
+  });
+    }
+    
+function showEvents(json) {
+  let items = $('#events .list-group-item');
+  items.hide();
+  let events = json._embedded.events;
+  let item = items.first();
+
+  for (let i=0;i<events.length;i++) {
+    item.children('.list-group-item-heading').text(events[i].name);
+    item.children('.list-group-item-text').text("Date: " + events[i].dates.start.localDate);
+    
+    try {
+      item.children('.venue').text("Venue: " + events[i]._embedded.venues[0].name + " in " + events[i]._embedded.venues[0].city.name);
+    } catch (err) {
+
+      console.log(err);
+    }
+
+    try{
+      item.children('.addressed').text("Address: " + events[i]._embedded.venues[0].address.line1);
+    } catch (err) {}
+
+
+    item.show();
+    item.off("click");
+    item.click(events[i], function(eventObject) {
+
+        // just for reference use
+    //   console.log(eventObject.data);
+    //   console.log(typeof(eventObject.data));
+      
+      $('#classification').html(eventObject.data["url"]);
+      
+      try {
+        getAttraction(eventObject.data._embedded.attractions[0].id);
+      } catch (err) {
+      console.log(err);
+      }
+    });
+    item=item.next();
+  }
+}
+
+$('#prev').click(function() {
+  getEvents(--page);
+});
+
+$('#next').click(function() {
+  getEvents(++page);
+});
+
+function getAttraction(id) {
+  $.ajax({
+    type:"GET",
+    url:"https://app.ticketmaster.com/discovery/v2/attractions/"+id+".json?apikey=0AM5PnXd9P80gcqkQlWul8ARQYY1GIAY",
+    async:true,
+    dataType: "json",
+    success: function(json) {
+          showAttraction(json);
+              },
+    error: function(xhr, status, err) {
+                console.log(err);
+              }
+  });
+}
+    
+function showAttraction(json) {
+  $('#events-panel').hide();
+  $('#attraction-panel').show();
+  
+  $('#attraction-panel').click(function() {
+        
+    getEvents(page);
+  });
+    
+};
+
+getEvents(page);
+
+</script>
+
+</html>

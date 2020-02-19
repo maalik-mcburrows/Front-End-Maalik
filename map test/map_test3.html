@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  </head>
+  <body>
+    <p id="location">Location there</p>
+    <div id="map"></div>
+    <div id="events"></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      
+
+            // $.ajax({
+            // type:"GET",
+            // url:"https://app.ticketmaster.com/discovery/v2/events.json?city=Atlanta&radius=15&unit=miles&countrycode=US&apikey=0AM5PnXd9P80gcqkQlWul8ARQYY1GIAY",
+            // async:true,
+            // dataType: "json",
+            // success: function(json) {
+            //             console.log(json);
+            //             var e = document.getElementById("events");
+            //             e.innerHTML = json.page.totalElements + " events found.";
+            //             showEvents(json);
+            //             initMap(pos, json);
+            //         },
+            // error: function(xhr, status, err) {
+            //             console.log(err);
+            //         }
+            // });
+
+    
+            
+
+
+    var map, infoWindow;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8
+      });
+      
+      infoWindow = new google.maps.InfoWindow;
+
+      // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var position = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          infoWindow.setPosition(position);
+          infoWindow.setContent('Location found.');
+          infoWindow.open(map);
+          map.setCenter(position);
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, position) {
+        infoWindow.setPosition(position);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+
+      }
+
+
+    }
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var position = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        };
+    });
+
+    console.log("position: ", position)
+
+    function showPosition(position) {
+
+      // navigator.geolocation.getCurrentPosition(function(position) {
+      //     var position = {
+      //       lat: position.coords.latitude,
+      //       lng: position.coords.longitude
+      //     }
+      //     })
+      
+        var x = document.getElementById("location");
+        const latlon = 33.753746 + "," + -84.386330;
+        // var pos = {
+        //     lat: position.coords.latitude,
+        //     lng: position.coords.longitude
+        //   };
+
+
+
+
+
+        $.ajax({
+          type:"GET",
+          url:"https://app.ticketmaster.com/discovery/v2/events.json?city=Atlanta&radius=15&unit=miles&countrycode=US&apikey=0AM5PnXd9P80gcqkQlWul8ARQYY1GIAY&latlong="+positionA,
+          async:true,
+          dataType: "json",
+          success: function(json) {
+                      console.log(json);
+                      var e = document.getElementById("events");
+                      e.innerHTML = json.page.totalElements + " events found.";
+                      showEvents(json);
+                      initMap(position, json);
+                  },
+          error: function(xhr, status, err) {
+                      console.log(err);
+                  }
+        });
+        
+        for(var i=0; i<json.page.size; i++) {
+          addMarker(map, json._embedded.events[i]);
+        }
+        console.log("position");
+      }
+
+    showPosition();
+    
+      
+
+
+    function showEvents(json) {
+            for(var i=0; i<json.page.size; i++) {
+                $("#events").append("<p>"+json._embedded.events[i].name+"</p>");
+            }
+        }
+
+
+
+    function addMarker(map, event) {
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(event._embedded.venues[0].location.latitude, event._embedded.venues[0].location.longitude),
+            map: map
+        });
+        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+        marker.addListener("click", function(){
+          infoWindow.open(map, marker);
+        
+        console.log(marker);
+        console.log("events");
+    }
+
+
+      
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA__OLAoKRCHfWEPI1yLSl_pc1Qxz2Or9E&callback=initMap">
+    </script>
+  </body>
+</html>

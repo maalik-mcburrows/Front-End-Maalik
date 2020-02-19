@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    </head>
+    <body>
+    <script>
+
+$.ajax({
+    type:"GET",
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?city=Atlanta&apikey=0AM5PnXd9P80gcqkQlWul8ARQYY1GIAY&size=10&page="+page,
+    async:true,
+    dataType: "json",
+    success: function(json) {
+          getEvents.json = json;
+                showEvents(json);
+             },
+    error: function(xhr, status, err) {
+                console.log(err);
+             }
+  });
+
+  function showEvents(json) {
+      let items = $('#events .list-group-item');
+      items.hide();
+      let events = json._embedded.events;
+      let item = items.first();
+    
+      for (let i=0;i<events.length;i++) {
+        item.children('.list-group-item-heading').text(events[i].name);
+        item.children('.list-group-item-text').text(events[i].dates.start.localDate);
+        try {
+          item.children('.venue').text(events[i]._embedded.venues[0].name + " in " + events[i]._embedded.venues[0].city.name);
+        } catch (err) {
+          console.log(err);
+        }
+        item.show();
+        item.off("click");
+        item.click(events[i], function(eventObject) {
+            // just for reference use
+          console.log(eventObject.data);
+          console.log(typeof(eventObject.data));
+
+
+
+
+    </script>
+    
+
+
+</body>
+</html>
