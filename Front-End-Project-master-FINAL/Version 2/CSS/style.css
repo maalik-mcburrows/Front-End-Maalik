@@ -1,5 +1,5 @@
 #map {
-    height: 80vh;
+    height: 100vh;
   }
 
   html{
@@ -140,4 +140,44 @@ min-width: 75px;
 
 #savannahBtn{
   border-radius: 60%;
+}
+
+/* ---------------------------ATL Page_____________________________ */
+
+.container{
+  padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-lg{
+  position: relative;
+  top: 25%;
+  width: 50vw;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.panel{
+  margin-bottom: 20px;
+  margin-top: 170px;
+  overflow: auto;
+  width: 50vw;
+  background-color: #fff;
+  color: #39ff14;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
