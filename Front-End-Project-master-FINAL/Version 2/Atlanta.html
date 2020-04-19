@@ -23,29 +23,30 @@
   
   <body>
 
-<div class="content">
+    <div class="content">
 
-    <!-- Navbar with button navs -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary" id="navbarElement">
-      <a class="navbar-brand" href="#">Navbar</a>
-      
-      
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-        </li>
-        </ul>
+      <!-- Navbar with button navs -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbarElement">
+  
+        <a class="navbar-brand" href="#" id="navBrand"></a>
         
-      </div>
-    </nav>
+  
+        <form class="form-inline">
+           <a href = "home.html" ><button class= "btn btn-outline-success" id="navBtn" type="button">HOME</button></a>
+            <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
+          </form>
+  
+          <form class="form-inline">
+            <button class="btn btn-outline-success" id="navBtn" type="button" href="#">EVENTS</button>
+            <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
+          </form>
+  
+          <form class="form-inline">
+            <a href = "about.html"><button class="btn btn-outline-success" id="navBtn" type="button">ABOUT</button></a>
+            <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
+          </form>
+      </nav>
+
 
 
     <div id="particles-js">
@@ -61,64 +62,74 @@
           <div class="panel-body">
             <div id="events" class="list-group">
               
-                <a href="#" class="list-group-item">
+              <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">Event title</h4>
                 <p class="list-group-item-text">Description</p>
                 <p class="venue"></p>
+                <p class="addressed">Another Description</p>
               </a>
               
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">Event title</h4>
                 <p class="list-group-item-text">Description</p>
                 <p class="venue"></p>
+                <p class="addressed">Another Description</p>
               </a>
               
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">Event title</h4>
                 <p class="list-group-item-text">Description</p>
                 <p class="venue"></p>
+                <p class="addressed">Another Description</p>
               </a>
               
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">Event title</h4>
                 <p class="list-group-item-text">Description</p>
                 <p class="venue"></p>
+                <p class="addressed">Another Description</p>
               </a>
               
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">Event title</h4>
                 <p class="list-group-item-text">Description</p>
                 <p class="venue"></p>
+                <p class="addressed">Another Description</p>
               </a>
               
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">Event title</h4>
                 <p class="list-group-item-text">Description</p>
                 <p class="venue"></p>
+                <p class="addressed">Another Description</p>
               </a>
               
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">Event title</h4>
                 <p class="list-group-item-text">Description</p>
                 <p class="venue"></p>
+                <p class="addressed">Another Description</p>
               </a>
               
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">Event title</h4>
                 <p class="list-group-item-text">Description</p>
                 <p class="venue"></p>
+                <p class="addressed">Another Description</p>
               </a>
               
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">Event title</h4>
                 <p class="list-group-item-text">Description</p>
                 <p class="venue"></p>
+                <p class="addressed">Another Description</p>
               </a>
               
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">Event title</h4>
                 <p class="list-group-item-text">Description</p>
                 <p class="venue"></p>
+                <p class="addressed">Another Description</p>
               </a>
 
             </div>
@@ -213,6 +224,11 @@ var page = 0;
         } catch (err) {
           console.log(err);
         }
+        try{
+      item.children('.addressed').text("Address: " + events[i]._embedded.venues[0].address.line1);
+    } catch (err) {}
+    
+    
         item.show();
         item.off("click");
         item.click(events[i], function(eventObject) {
@@ -269,10 +285,6 @@ var page = 0;
         getEvents(page);
       });
         
-        $()
-    //   $('#attraction .list-group-item-heading').first().text(json.name);
-    //   $('#attraction img').first().attr('src',json.images[0].url);
-    //   $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
     }
     
     getEvents(page);

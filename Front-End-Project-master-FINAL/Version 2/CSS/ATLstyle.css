@@ -23,14 +23,9 @@ html{
 }
 
   #particles-js{
-    /* grid-area: main; */
-    /* background: #262626; */
     height: 100vh;
-    /* z-index: 9999999999; */
     display: flex;
-    /* align-items: center; */
     justify-content: center;
-    /* flex-wrap: wrap; */
     overflow: auto;
   }
 
@@ -46,10 +41,7 @@ html{
   }
 
 .navbar{
-  /* grid-area: navbar; */
   border-bottom-right-radius: 100%;
-  /* max-height: 50vh; */
-  /* clear: none; */
   background: linear-gradient(45deg, #262626, #262626 15%, #39ff14);
   display: flex;
   /* flex-flow: row; */
@@ -104,24 +96,24 @@ min-width: 75px;
   }
   
   .col-lg{
-    /* position: absolute;
-    height: 50vh; */
-    top: 15vh;
+    position: absolute;
+    /* height: 50vh;  */
+    top: 25%;
     /* width: 50vw;
     padding-right: 15px;
     padding-left: 15px; */
-    /* margin-top: 100px;
+   /* margin-top: 100px; */
     display: flex;
-    justify-content: center; */
+    justify-content: center; 
   }
   
-.panel{
+/* .panel{
   top: -35px;
-}
+} */
 
   .panel{
     margin-bottom: 25vh;
-    margin-top: 0;
+    margin-top: 25vh;
     /* margin-left: 25vw; */
     overflow: auto;
     /* width: 50vw; */
@@ -129,6 +121,10 @@ min-width: 75px;
     color: #39ff14;
     border: 2px solid #39ff14;;
     border-radius: 4px;
+  }
+
+  #events-panel {
+    height: 50vh;
   }
 
   .panel > .panel-heading {
@@ -165,10 +161,10 @@ min-width: 75px;
   .panel-title{
       text-align: center;
   }
-/* 
+ 
   #attraction-panel{
       margin-top: 50vh;
-  } */
+  } 
 
   .panel-footer{
     background-color: #262626;
@@ -230,6 +226,6 @@ min-width: 75px;
     text-transform: capitalize;
 }
 
-#events-panel{
+/* #events-panel{
   height: 50vh;
-}
+} */

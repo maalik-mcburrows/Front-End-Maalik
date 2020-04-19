@@ -28,26 +28,25 @@
     <!-- Final Change Added Nav Bar -->
 <div class="mapNav">
     <!-- Navbar with button navs -->
-    <!-- Navbar with button navs -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary" id="navbarElement">
-      <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbarElement">
+
+      <a class="navbar-brand" href="#" id="navBrand"></a>
       
-      
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-        </li>
-        </ul>
-        
-      </div>
+
+      <form class="form-inline">
+        <a href = "home.html" ><button class= "btn btn-outline-success" id="navBtn" type="button">HOME</button></a>
+         <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
+       </form>
+
+       <form class="form-inline">
+         <button class="btn btn-outline-success" id="navBtn" type="button" href="#">EVENTS</button>
+         <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
+       </form>
+
+       <form class="form-inline">
+         <a href = "about.html"><button class="btn btn-outline-success" id="navBtn" type="button">ABOUT</button></a>
+         <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
+       </form>
     </nav>
   </div>
     <!-- Final Change Added here -->
@@ -129,8 +128,8 @@ function showPosition(position) {
 
     <!-- for security purposes - removed unique API KEY  -->
     <!-- if you do not have an API key use the API code below -->
-<!--   
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<KEY HERE>"></script> -->
+  
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<KEYHERE>"></script> -->
 
     <!-- for dev purposes, use old v2 API -->
     <script type= "text/javascript" src="https://maps.googleapis.com/maps/api/js" async defer></script>
